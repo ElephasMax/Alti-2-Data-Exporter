@@ -1657,7 +1657,7 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
     document.body.append(el("main", {},
       el("header", {}, el("h1", {}, "Alti-2 Data Exporter"),
         el("p", {}, "Download your jump log from an Alti-2 altimeter, browse it, and export it to a spreadsheet."),
-        el("p", {}, "Questions, comments or concerns? Email ", el("a", { href: "mailto:staff@skydiving.is" }, "staff@skydiving.is"), ".")),
+        el("p", {}, "Is your altimeter not supported? Questions, comments or concerns? Email ", el("a", { href: "mailto:staff@skydiving.is" }, "staff@skydiving.is"), ".")),
       howTo(),
       el("section", {}, el("h2", {}, "1 · Connect your altimeter"),
         el("div", { class: "row" },

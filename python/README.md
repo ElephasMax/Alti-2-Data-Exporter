@@ -11,7 +11,7 @@ altimeters and uses the same logbook format as the
 > any damage, malfunction, injury or other issues resulting from its use.
 > Always check that your altimeter works correctly before you jump.
 
-Questions, comments or concerns? Email
+Is your altimeter not supported? Questions, comments or concerns? Email
 [staff@skydiving.is](mailto:staff@skydiving.is).
 
 ## Supported altimeters
