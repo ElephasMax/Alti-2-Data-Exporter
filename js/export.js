@@ -1081,10 +1081,12 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
     e.textContent = msg || "";
   }
 
+  /* Show progress a of b with a label; with a label but no total the bar just animates (still waiting);
+   * with no label it is hidden. */
   function setProgress(label, a, b) {
-    $("#progress").hidden = !b;
-    $("#progress").max = b || 1;
-    $("#progress").value = a || 0;
+    const bar = $("#progress");
+    bar.hidden = !label;
+    if (b) { bar.max = b; bar.value = a || 0; } else bar.removeAttribute("value");
     $("#progressLabel").textContent = label || "";
   }
 
@@ -1203,7 +1205,9 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
   }
 
   async function cmdDownload() {
+    if (ui.busy || !isDetected()) return;
     say("#dlStatus", "");
+    setProgress("Downloading…");          // animated while the altimeter wakes up, until the first data arrives
     ui.stopped = false;
     let summary = null;
     const ok = await withDevice("download", async (dev) => {
@@ -1211,7 +1215,8 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
       log("key used: " + dev.keyLabel);
       const res = await dev.download({
         withProfiles: true, includeDeleted: false,
-        progress: (stage, a, b) => setProgress(stage === "summary" ? `summary log ${a}/${b} bytes` : stage === "jumps" ? `jumps ${a}/${b}` : stage, a, b),
+        progress: (stage, a, b) => (stage === "summary" ? setProgress(`Downloading… jump list ${a}/${b} bytes`, a, b)
+          : stage === "jumps" ? setProgress(`Downloading… jump ${a} of ${b}`, a, b) : setProgress("Downloading…")),
       });
       res.warnings.forEach((w) => log("warning: " + w, "warn"));
       log(`tables: jump types=${JSON.stringify(res.tables.jump_types)} aircraft=${JSON.stringify(res.tables.aircraft)} dropzones=${JSON.stringify(res.tables.dropzones)}`);
