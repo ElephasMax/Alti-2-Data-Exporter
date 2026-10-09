@@ -16,6 +16,9 @@ logbook format:
 > provided "as is", without warranty of any kind. The author is not liable for
 > any damage, malfunction, injury or other issues resulting from its use.
 > Always check that your altimeter works correctly before you jump.
+>
+> This software is made by a private developer and is not affiliated with,
+> endorsed by or associated with Alti-2 Technologies.
 
 Is your altimeter not supported? Questions, comments or concerns? Email
 [staff@skydiving.is](mailto:staff@skydiving.is).

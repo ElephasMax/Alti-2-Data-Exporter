@@ -1719,6 +1719,7 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
       el("p", { id: "warnText" }, "Reading data is normally safe, but you use this software and the information it provides entirely at your own risk. "
         + "The software is provided “as is”, without warranty of any kind. The author is not liable for any damage, malfunction, injury or other issues resulting from its use. "
         + "Always check that your altimeter works correctly before you jump."),
+      el("p", {}, "This software is made by a private developer and is not affiliated with, endorsed by or associated with Alti-2 Technologies."),
       el("div", { class: "actions" },
         el("label", {}, again, "Do not show again"),
         el("button", { class: "primary", autofocus: true, onclick: () => { if (again.checked) rememberWarning(); d.close(); d.remove(); } },
