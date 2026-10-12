@@ -1630,7 +1630,8 @@ dialog.warning .actions label { color:var(--fg); } dialog.warning button { paddi
         step("Open this page in Google Chrome or Microsoft Edge on a computer.",
           "Safari, Firefox and phones can't connect to USB devices from a web page."),
         step("Plug your altimeter into the computer with a USB data cable.",
-          "Supported models: Atlas, Atlas 2, Neptune II, Neptune III / IIIA and MA-12."),
+          ["Supported models: Atlas and Atlas 2.", el("br"),
+           "Not fully supported - Additional drivers required: Neptune II, Neptune III / IIIA and MA-12."]),
         step("Click “Select device” and pick your altimeter in the list that pops up.",
           "It usually shows up as a USB serial device. Example cu.usbserial.A2QDB3BF or tty.usbserial.A2QDB3BF. "
           + "The page then connects to it: after about 8 seconds your altimeter’s model, serial number, software version and total jump count appear, and the download button unlocks."),
